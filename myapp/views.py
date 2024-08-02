@@ -1,8 +1,11 @@
 from django.http import HttpResponse, JsonResponse
 from .models import Proyect, Task
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, render
 
 # Create your views here.
+def index(request):
+    return render(request, 'index.html')
+
 def hello(request):
     return HttpResponse("<h1>Hello World</h1>")
 
