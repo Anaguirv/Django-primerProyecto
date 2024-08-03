@@ -7,5 +7,6 @@ urlpatterns = [
     path('proyects/', views.proyects),
 
     #ruta para vista de tarea
-    path('tasks/<int:id>', views.tasks)
+    #path('tasks/<int:id>', views.tasks)
+    path('tasks/', views.tasks)
 ]
