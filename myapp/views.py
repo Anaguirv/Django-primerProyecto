@@ -4,13 +4,16 @@ from django.shortcuts import get_object_or_404, render
 
 # Create your views here.
 def index(request):
-    return render(request, 'index.html')
+    title = "Django Course"
+    return render(request, 'index.html', {
+        "titulo" : title
+    })
 
 def hello(request):
     return HttpResponse("<h1>Hello World</h1>")
 
 def about(request):
-    return HttpResponse("About")
+    return render(request,"about.html")
 
 def proyects(request):
     proyectos = list(Proyect.objects.values())  # Convertir el QuerySet a una lista de diccionarios 
