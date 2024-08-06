@@ -3,14 +3,19 @@
 {% for task in tasks %}
 
 <div>
-    <h2>{{ task.title }}</h2>
+    <h2>{% if task.done == False %} ⏳ {% else %} ✅ {% endif %} 
+        {{ task.title }}
+    </h2>
+
     <p>{{ task.description }}</p>
     <p>Proyecto: {{ task.proyect }}</p>
+    
     <button>
-        Remove
+        ❌ Remove
     </button>
+    
     <button>
-        ✅ done
+        ✅ Done
     </button>
 </div>
 
