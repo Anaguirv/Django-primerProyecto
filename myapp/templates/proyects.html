@@ -1,3 +1,7 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+
 <h1>Proyects</h1>
 
 {% for proyect in proyects %}
@@ -5,3 +9,5 @@
 <p>{{ proyect.name }}</p>
 
 {% endfor %}
+
+{% endblock %}
