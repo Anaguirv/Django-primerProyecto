@@ -8,5 +8,8 @@ urlpatterns = [
 
     #ruta para vista de tarea
     #path('tasks/<int:id>', views.tasks)
-    path('tasks/', views.tasks)
+    path('tasks/', views.tasks),
+
+    #ruta para crear tarea
+    path('create_task/', views.create_task)
 ]
