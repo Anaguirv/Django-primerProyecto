@@ -32,6 +32,9 @@ def tasks(request):
     })
 
 def create_task(request):
+    print(request.GET['title'])
+    print(request.GET['description'])
+    
     return render (request, "create_task.html", {
         'form': CreateNewTask()
     })
