@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from .models import Proyect, Task
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import render, redirect
 from .forms import CreateNewTask
 
 # Create your views here.
@@ -32,18 +32,17 @@ def tasks(request):
     })
 
 def create_task(request):
-    # mostrar valores por consola
-    print(request.GET['title'])
-    print(request.GET['description'])
-    
-    # intanciar objeto para ser guardado en DB
-    Task.objects.create(
-        title=request.GET['title'],
-        description=request.GET['description'],
-        proyect_id=2
-        # done=False -> configurado por defecto, no se declara.
-        )
-    
-    return render (request, "create_task.html", {
-        'form': CreateNewTask()
-    })
+    if request.method == 'GET':
+        return render (request, "create_task.html", {
+            'form': CreateNewTask()
+        })
+
+    else:
+        # intanciar objeto para ser guardado en DB
+        Task.objects.create(
+            title=request.POST['title'],
+            description=request.POST['description'],
+            proyect_id=2
+            # done=False -> configurado por defecto, no se declara.
+            )
+        return redirect('task/')   
