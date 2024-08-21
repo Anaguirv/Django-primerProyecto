@@ -45,4 +45,4 @@ def create_task(request):
             proyect_id=2
             # done=False -> configurado por defecto, no se declara.
             )
-        return redirect('task/')   
+        return redirect('/tasks/')   
