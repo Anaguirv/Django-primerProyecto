@@ -3,7 +3,7 @@
 {% block content %}
 <h1>Crear nuevo proyecto</h1>
 
-<form method="POST">
+<form method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <button> Save </button>

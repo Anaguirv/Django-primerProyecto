@@ -36,9 +36,8 @@ def create_task(request):
         return render (request, "tasks/create_task.html", {
             'form': CreateNewTask()
         })
-
     else:
-        # intanciar objeto para ser guardado en DB
+        # instanciar objeto de "Task" para ser guardado en DB
         Task.objects.create(
             title=request.POST['title'],
             description=request.POST['description'],
@@ -52,3 +51,9 @@ def create_project(request):
         return render(request, "projects/create_project.html", {
             'form': CreateNewProject()
         })
+    else:
+        # instanciar el objeto de "Proyect" para ser guardado en DB
+        Proyect.objects.create(
+            name=request.POST['name']
+        )
+        return redirect('/proyects/')
