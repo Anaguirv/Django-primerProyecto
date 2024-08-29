@@ -44,7 +44,7 @@ def create_task(request):
             proyect_id=2
             # done=False -> configurado por defecto, no se declara.
             )
-        return redirect('/tasks/')
+        return redirect('tasks')
     
 def create_project(request):
     if request.method == "GET":
@@ -56,4 +56,4 @@ def create_project(request):
         Proyect.objects.create(
             name=request.POST['name']
         )
-        return redirect('/proyects/')
+        return redirect('projects')
